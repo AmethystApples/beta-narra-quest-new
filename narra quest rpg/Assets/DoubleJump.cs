@@ -7,7 +7,7 @@ public class DoubleJump : MonoBehaviour
     public PlayerMovement mover;
     public CharacterController2D controller;
     public float jumpPower = 15f;
-    public int extraJumps = 1;
+    public int extraJumps = 2;
     public int jumpCounter;
 
 
@@ -28,7 +28,7 @@ public class DoubleJump : MonoBehaviour
         }
         if (controller.isGrounded())
         {
-            jumpCounter = extraJumps;
+            jumpCounter = extraJumps;   
         }
     }
     public int getJumpCounter()
