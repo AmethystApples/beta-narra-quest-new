@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ScuttleTest.unity
+- path: Assets/Scenes/enemyaitest.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
