@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LifeCount : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class LifeCount : MonoBehaviour
         //if no lives - do nothing
         if (livesRemaining == 0)
         {
-            return;
+            SceneManager.LoadScene("MainMenu");
         }
 
         //decrease livesRemaining
