@@ -7,11 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame(){
         //THIS IS WHAT OPENS WHEN "PLAY" IS HIT
-        SceneManager.LoadScene("ScuttleTest"); //THIS CAN BE CHANGED TO LOAD THE NEXT SCENE IN THE INDEX (index is file > build Settings)
-    }
-
-    public void QuitGame(){
-        Application.Quit();
+        SceneManager.LoadScene("Level1"); //THIS CAN BE CHANGED TO LOAD THE NEXT SCENE IN THE INDEX (index is file > build Settings)
     }
 
     public void SendToOptions(){
@@ -21,4 +17,9 @@ public class MainMenu : MonoBehaviour
     public void SendToCredits(){
         SceneManager.LoadScene("Credits");
     }
+
+    public void QuitGame(){
+        Application.Quit();
+    }
+
 }
