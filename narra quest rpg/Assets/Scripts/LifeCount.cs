@@ -13,7 +13,7 @@ public class LifeCount : MonoBehaviour
     //3 lives - 3 images (0, 1, 2)
     //2 lives - 2 images (0, 1, [2])
 
-    private void LoseLife()
+    public void LoseLife()
     {
         //if no lives - do nothing
         if (livesRemaining == 0)
