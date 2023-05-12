@@ -9,6 +9,7 @@ public class EnemyPatrol : MonoBehaviour
     int nextPosIndex;
     Transform nextPosition;
     public float moveSpeed;
+    private float _nextHit = 0.15f;
 
     public bool flipCharacter = false;
     private bool m_facingRight = true;
@@ -21,19 +22,20 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position == nextPosition.position)
+        if (transform.position == nextPosition.position)
         {
             nextPosIndex++;
 
-            if(flipCharacter == true){
+            if (flipCharacter == true)
+            {
                 Flip();
             }
-            
-            if(nextPosIndex>=positions.Length)
+
+            if (nextPosIndex >= positions.Length)
             {
                 nextPosIndex = 0;
             }
-            
+
             nextPosition = positions[nextPosIndex];
         }
 
@@ -41,13 +43,46 @@ public class EnemyPatrol : MonoBehaviour
     }
 
     private void Flip()
-	{
-		// Switch the way the player is labelled as facing.
-		m_facingRight = !m_facingRight;
+    {
+        // Switch the way the enemy is labelled as facing.
+        m_facingRight = !m_facingRight;
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
+        // Multiply the enemy's x local scale by -1.
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" && Time.time > _nextHit)
+        {
+            Debug.Log($"{name} Triggered");
+            FindObjectOfType<LifeCount>().LoseLife();
+            _nextHit = Time.time + 0.5f;
+        }
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
