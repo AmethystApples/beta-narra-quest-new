@@ -16,10 +16,6 @@ public class LifeCount : MonoBehaviour
     public void LoseLife()
     {
         //if no lives - do nothing
-        if (livesRemaining == 0)
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
 
         //decrease livesRemaining
         livesRemaining--;
@@ -29,6 +25,7 @@ public class LifeCount : MonoBehaviour
         if(livesRemaining == 0)
         {
             Debug.Log(" You have lost ");
+            SceneManager.LoadScene("DeathScreen");
         }
     }
     private void Update()
